@@ -23,7 +23,7 @@ namespace Kooboo.Commerce.Services.Catalog
             
         public Brand ById(int id)
         {
-            return this._provider.ById(id);
+            return this._provider.QueryById(id);
         }
 
         public Brand Get(System.Linq.Expressions.Expression<Func<Brand, bool>> where)
@@ -45,7 +45,7 @@ namespace Kooboo.Commerce.Services.Catalog
 
         public void Delete(int[] ids)
         {
-            this._provider.All
+            this._provider.CreateQuery()
                 .Where(it => ids.Contains(it.Id))
                 .ForEach((it, index) =>
                 {
@@ -58,7 +58,7 @@ namespace Kooboo.Commerce.Services.Catalog
         {
             PagedList<Brand> lst = null;
 
-            IQueryable<Brand> query = this._provider.All.Where(it => it.Deleted == false);
+            IQueryable<Brand> query = this._provider.CreateQuery().Where(it => it.Deleted == false);
             if (!string.IsNullOrEmpty(search))
             {
                 query = query.Where(it => it.Name.Contains(search));

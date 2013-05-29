@@ -33,20 +33,67 @@
     <Reference Include="CookComputing.XmlRpcV2">
       <HintPath>..\packages\Kooboo_CMS.4.1\lib\CookComputing.XmlRpcV2.dll</HintPath>
     </Reference>
+    <Reference Include="DiffPlex">
+      <HintPath>..\packages\Kooboo_CMS.4.1\lib\DiffPlex.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\Kooboo_CMS.4.1\lib\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip.Reduced">
       <HintPath>..\packages\Kooboo_CMS.4.1\lib\Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="Kooboo">
       <HintPath>..\packages\Kooboo_CMS.4.1\lib\Kooboo.dll</HintPath>
     </Reference>
-    <Reference Include="Kooboo.CMS.Caching">
-      <HintPath>..\packages\Kooboo_CMS.4.1\lib\Kooboo.CMS.Caching.dll</HintPath>
-    </Reference>
     <Reference Include="Kooboo.CMS.Common">
       <HintPath>..\packages\Kooboo_CMS.4.1\lib\Kooboo.CMS.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Kooboo.CMS.Common.Runtime.Dependency.Ninject">
-      <HintPath>..\packages\Kooboo_CMS.4.1\lib\Kooboo.CMS.Common.Runtime.Dependency.Ninject.dll</HintPath>
+    <Reference Include="Kooboo.CMS.Content">
+      <HintPath>..\packages\Kooboo_CMS.4.1\lib\Kooboo.CMS.Content.dll</HintPath>
+    </Reference>
+    <Reference Include="Kooboo.CMS.Web">
+      <HintPath>..\packages\Kooboo_CMS.4.1\lib\Kooboo.CMS.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Kooboo_CMS">
+      <HintPath>..\packages\Kooboo_CMS.4.1\lib\Kooboo_CMS.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Analyzers">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Analyzers.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Core">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.FastVectorHighlighter">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.FastVectorHighlighter.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Highlighter, Version=2.3.2.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Highlighter.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Memory">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Queries">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Queries.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Regex">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Regex.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SimpleFacetedSearch">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.SimpleFacetedSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Snowball">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Snowball.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SpellChecker">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.SpellChecker.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -74,6 +121,7 @@
     <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Kooboo_CMS.4.1\lib\System.Net.Http.WebRequest.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Kooboo_CMS.4.1\lib\System.Web.Helpers.dll</HintPath>
@@ -120,6 +168,7 @@
     </Compile>
     <Compile Include="Models\Catalog\Brand.cs" />
     <Compile Include="Models\Catalog\Category.cs" />
+    <Compile Include="Models\Catalog\ProductType.cs" />
     <Compile Include="Models\Customers\Customer.cs" />
     <Compile Include="Models\Orders\Order.cs" />
     <Compile Include="Models\Catalog\PackageSize.cs" />
@@ -138,10 +187,10 @@
     <Compile Include="Services\Orders\OrderService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Folder Include="Models\Discounts\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Discounts\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

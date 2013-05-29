@@ -9,21 +9,18 @@ namespace Kooboo.Commerce.Models.Catalog
 {
     public class Brand:IEntity
     {
-        [Key]
         public int Id
         {
             get;
             set;
         }
 
-        [Required,StringLength(50)]
         public string Name
         {
             get;
             set;
         }
 
-        [StringLength(500)]
         public string Logo
         {
             get;
@@ -43,7 +40,7 @@ namespace Kooboo.Commerce.Models.Catalog
         }
 
         private ICollection<Product> _products;
-        public ICollection<Product> Products
+        public virtual ICollection<Product> Products
         {
             get
             {

@@ -33,6 +33,7 @@
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Kooboo">
       <HintPath>..\packages\Kooboo_CMS.4.1\lib\Kooboo.dll</HintPath>
@@ -116,7 +117,10 @@
     <Compile Include="Infrastructure\CommerceDbContext.cs" />
     <Compile Include="Infrastructure\DatabaseFactory.cs" />
     <Compile Include="Infrastructure\IDatabaseFactory.cs" />
+    <Compile Include="Mapping\BrandMap.cs" />
+    <Compile Include="Mapping\CategoryMap.cs" />
     <Compile Include="Mapping\OrderMap.cs" />
+    <Compile Include="Mapping\ProductMap.cs" />
     <Compile Include="OrderProvider.cs" />
     <Compile Include="ProductProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

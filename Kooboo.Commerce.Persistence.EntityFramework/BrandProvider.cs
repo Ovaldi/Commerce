@@ -18,44 +18,14 @@ namespace Kooboo.Commerce.Persistence.EntityFramework
             
         }
 
-        public Brand ById(int id)
-        {
-            return this.DbContext.Brands.FirstOrDefault(it => it.Id == id);
-        }
-
         public Brand Get(System.Linq.Expressions.Expression<Func<Brand, bool>> where)
         {
             return this.DbContext.Brands.FirstOrDefault(where);
         }
 
-        public IQueryable<Brand> All
-        {
-            get
-            {
-                return this.DbContext.Brands.AsQueryable();
-            }
-        }
-
         public IQueryable<Brand> GetMany(System.Linq.Expressions.Expression<Func<Brand, bool>> where)
         {
             return this.DbContext.Brands.Where(where);
-        }
-
-        public void Add(Brand entity)
-        {
-            this.DbContext.Brands.Add(entity);
-        }
-
-        public void Update(Brand entity)
-        {
-            this.DbContext.Brands.Attach(entity);
-            this.DbContext.Entry(entity).State = EntityState.Modified;
-        }
-
-        public void Delete(Brand entity)
-        {
-            var old = this.DbContext.Brands.FirstOrDefault(it => it.Id == entity.Id);
-            this.DbContext.Brands.Remove(old);
         }
 
         public void Delete(System.Linq.Expressions.Expression<Func<Brand, bool>> where)
@@ -64,6 +34,33 @@ namespace Kooboo.Commerce.Persistence.EntityFramework
             {
                 this.DbContext.Brands.Remove(it);
             });
+        }
+
+        public void Add(Brand obj)
+        {
+            this.DbContext.Brands.Add(obj);
+        }
+
+        public IQueryable<Brand> CreateQuery()
+        {
+            return this.DbContext.Brands.AsQueryable();
+        }
+
+        public void Delete(Brand obj)
+        {
+            var old = this.DbContext.Brands.FirstOrDefault(it => it.Id == obj.Id);
+            this.DbContext.Brands.Remove(old);
+        }
+
+        public Brand QueryById(int id)
+        {
+            return this.DbContext.Brands.FirstOrDefault(it => it.Id == id);
+        }
+
+        public void Update(Brand obj)
+        {
+            this.DbContext.Brands.Attach(obj);
+            this.DbContext.Entry(obj).State = EntityState.Modified;
         }
     }
 }

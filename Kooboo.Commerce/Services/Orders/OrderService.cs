@@ -20,27 +20,30 @@ namespace Kooboo.Commerce.Services.Orders
 
         public Order ById(int id)
         {
-            throw new NotImplementedException();
+            return this._provider.QueryById(id);
         }
 
         public Order Get(System.Linq.Expressions.Expression<Func<Order, bool>> where)
         {
-            throw new NotImplementedException();
+            return this._provider.Get(where);
         }
 
         public void Add(Order entity)
         {
-            throw new NotImplementedException();
+            this._provider.Add(entity);
+            this._unitOfWork.Commit();
         }
 
         public void Update(Order entity)
         {
-            throw new NotImplementedException();
+            this._provider.Update(entity);
+            this._unitOfWork.Commit();
         }
 
         public void Delete(int[] ids)
         {
-            throw new NotImplementedException();
+            this._provider.Delete(it => ids.Contains(it.Id));
+            this._unitOfWork.Commit();
         }
 
         public IPagedList<Order> Search(string search, int? page, int? pageSize)

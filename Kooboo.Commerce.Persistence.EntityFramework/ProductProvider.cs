@@ -16,19 +16,9 @@ namespace Kooboo.Commerce.Persistence.EntityFramework
 
         }
 
-        public Product ById(int id)
-        {
-            return this.DbContext.Products.FirstOrDefault(it => it.Id == id);
-        }
-
         public Product Get(System.Linq.Expressions.Expression<Func<Product, bool>> where)
         {
             throw new NotImplementedException();
-        }
-
-        public IQueryable<Product> All
-        {
-            get { throw new NotImplementedException(); }
         }
 
         public IQueryable<Product> GetMany(System.Linq.Expressions.Expression<Func<Product, bool>> where)
@@ -54,6 +44,17 @@ namespace Kooboo.Commerce.Persistence.EntityFramework
         public void Delete(System.Linq.Expressions.Expression<Func<Product, bool>> where)
         {
             throw new NotImplementedException();
+        }
+
+
+        public IQueryable<Product> CreateQuery()
+        {
+            return this.DbContext.Products.AsQueryable();
+        }
+
+        public Product QueryById(int id)
+        {
+            return this.DbContext.Products.FirstOrDefault(it => it.Id == id);
         }
     }
 }

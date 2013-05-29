@@ -9,7 +9,6 @@ namespace Kooboo.Commerce.Models.Catalog
 {
     public class Product : IEntity
     {
-        [Key]
         public int Id
         {
             get;

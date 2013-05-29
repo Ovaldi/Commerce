@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Kooboo.Commerce.Models.Orders;
 using System.Data;
+using System.Linq.Expressions;
 using Kooboo.Commerce.Persistence.Infrastructure;
 
 namespace Kooboo.Commerce.Persistence.EntityFramework
@@ -18,25 +19,12 @@ namespace Kooboo.Commerce.Persistence.EntityFramework
 
         }
 
-        public Order ById(int id)
-        {
-            return this.DbContext.Orders.FirstOrDefault(it => it.Id == id);
-        }
-
-        public Order Get(System.Linq.Expressions.Expression<Func<Order, bool>> where)
+        public Order Get(Expression<Func<Order, bool>> where)
         {
             return this.DbContext.Orders.Where(where).FirstOrDefault();
         }
 
-        public IQueryable<Order> All
-        {
-            get 
-            {
-                return this.DbContext.Orders.AsQueryable();
-            }
-        }
-
-        public IQueryable<Order> GetMany(System.Linq.Expressions.Expression<Func<Order, bool>> where)
+        public IQueryable<Order> GetMany(Expression<Func<Order, bool>> where)
         {
             return this.DbContext.Orders.Where(where);
         }
@@ -65,6 +53,16 @@ namespace Kooboo.Commerce.Persistence.EntityFramework
             {
                 this.DbContext.Orders.Remove(obj);
             }
+        }
+
+        public IQueryable<Order> CreateQuery()
+        {
+            return this.DbContext.Orders.AsQueryable();
+        }
+
+        public Order QueryById(int id)
+        {
+            return this.DbContext.Orders.FirstOrDefault(it => it.Id == id);
         }
     }
 }
