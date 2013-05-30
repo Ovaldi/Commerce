@@ -15,6 +15,9 @@ namespace Kooboo.Commerce.Persistence.EntityFramework.Mapping
             this.Property(it => it.Name).IsRequired().HasMaxLength(50);
             this.Property(it => it.Logo).HasMaxLength(500);
             this.Property(it => it.Description).HasMaxLength(2000);
+            this.Property(it => it.UtcCreateDateTime).IsRequired();
+            this.Property(it => it.UtcUpdateDateTime).IsRequired();
+            this.Ignore(it => it.HttpPostedFileBase);
         }
     }
 }

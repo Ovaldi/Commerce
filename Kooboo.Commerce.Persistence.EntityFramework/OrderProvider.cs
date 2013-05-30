@@ -6,7 +6,7 @@ using System.Text;
 using Kooboo.Commerce.Models.Orders;
 using System.Data;
 using System.Linq.Expressions;
-using Kooboo.Commerce.Persistence.Infrastructure;
+using Kooboo.Commerce.Persistence.EntityFramework.Infrastructure;
 
 namespace Kooboo.Commerce.Persistence.EntityFramework
 {

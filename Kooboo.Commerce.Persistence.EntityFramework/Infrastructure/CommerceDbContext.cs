@@ -9,17 +9,17 @@ using Kooboo.Commerce.Persistence.EntityFramework.Mapping;
 using System.Reflection;
 using System.Data.Entity.ModelConfiguration;
 
-namespace Kooboo.Commerce.Persistence.Infrastructure
+namespace Kooboo.Commerce.Persistence.EntityFramework.Infrastructure
 {
     public class CommerceDbContext : DbContext
     {
-
+        /*
         public CommerceDbContext()
             : base()
         {
             //禁用延迟加载
             //this.Configuration.LazyLoadingEnabled = false;
-        }
+        }*/
 
         public CommerceDbContext(string connStr)
             : base(connStr)

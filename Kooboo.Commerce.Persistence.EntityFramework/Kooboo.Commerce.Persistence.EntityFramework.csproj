@@ -41,6 +41,9 @@
     <Reference Include="Kooboo.CMS.Common">
       <HintPath>..\packages\Kooboo_CMS.4.1\lib\Kooboo.CMS.Common.dll</HintPath>
     </Reference>
+    <Reference Include="Kooboo.CMS.Sites">
+      <HintPath>..\packages\Kooboo_CMS.4.1\lib\Kooboo.CMS.Sites.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Kooboo_CMS.4.1\lib\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -69,6 +72,7 @@
     <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Kooboo_CMS.4.1\lib\System.Net.Http.WebRequest.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Kooboo_CMS.4.1\lib\System.Web.Helpers.dll</HintPath>
@@ -114,7 +118,10 @@
       <Link>AssemblyInfoGlobal.cs</Link>
     </Compile>
     <Compile Include="BrandProvider.cs" />
+    <Compile Include="CommerceSettingProvider.cs" />
     <Compile Include="Infrastructure\CommerceDbContext.cs" />
+    <Compile Include="Infrastructure\CommercePhysicalPath.cs" />
+    <Compile Include="Infrastructure\CommerceVirtualPath.cs" />
     <Compile Include="Infrastructure\DatabaseFactory.cs" />
     <Compile Include="Infrastructure\IDatabaseFactory.cs" />
     <Compile Include="Mapping\BrandMap.cs" />
@@ -140,7 +147,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "..\..\..\Kooboo.Commerce.Web\Bin\*.*"</PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetDir)\*.dll" "..\..\..\Kooboo.Commerce.Web\Bin\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

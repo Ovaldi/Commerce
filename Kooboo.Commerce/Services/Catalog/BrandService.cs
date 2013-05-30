@@ -6,6 +6,7 @@ using Kooboo.Commerce.Models.Catalog;
 using Kooboo.Commerce.Persistence;
 using Kooboo.Web.Mvc.Paging;
 using Kooboo.CMS.Common.Runtime.Dependency;
+using System.Linq.Expressions;
 
 namespace Kooboo.Commerce.Services.Catalog
 {
@@ -26,7 +27,7 @@ namespace Kooboo.Commerce.Services.Catalog
             return this._provider.QueryById(id);
         }
 
-        public Brand Get(System.Linq.Expressions.Expression<Func<Brand, bool>> where)
+        public Brand Get(Expression<Func<Brand, bool>> where)
         {
             return this._provider.Get(where);
         }

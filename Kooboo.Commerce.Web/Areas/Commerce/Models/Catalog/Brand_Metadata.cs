@@ -44,5 +44,19 @@ namespace Kooboo.Commerce.Web.Areas.Models.Catalog
             get;
             set;
         }
+
+        [GridColumn(GridItemColumnType = typeof(DateTimeGridItemColumn), HeaderText = "CreateDateTime")]
+        public DateTime UtcCreateDateTime
+        {
+            get;
+            set;
+        }
+
+        [GridColumn(GridItemColumnType=typeof(DateTimeGridItemColumn),HeaderText = "UpdateDateTime")]
+        public DateTime UtcUpdateDateTime
+        {
+            get;
+            set;
+        }
     }
 }

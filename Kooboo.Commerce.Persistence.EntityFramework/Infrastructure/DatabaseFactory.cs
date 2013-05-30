@@ -5,12 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Configuration;
 
-namespace Kooboo.Commerce.Persistence.Infrastructure.EntityFramework
+namespace Kooboo.Commerce.Persistence.EntityFramework.Infrastructure
 {
     [Dependency(typeof(IDatabaseFactory),ComponentLifeStyle.InRequestScope)]
     public class DatabaseFactory : IDatabaseFactory, IDisposable
     {
         private CommerceDbContext _dbContext;
+
+        public DatabaseFactory()
+        {
+
+        }
+
         public CommerceDbContext Get()
         {
             if (this._dbContext != null)
@@ -20,8 +26,8 @@ namespace Kooboo.Commerce.Persistence.Infrastructure.EntityFramework
             else
             {
                 string connStr = ConfigurationManager.ConnectionStrings["Commerce"].ConnectionString;
-                _dbContext = new CommerceDbContext(connStr);
-                _dbContext.Database.CreateIfNotExists();
+                this._dbContext = new CommerceDbContext(connStr);
+                this._dbContext.Database.CreateIfNotExists();
                 return this._dbContext;
             }
         }

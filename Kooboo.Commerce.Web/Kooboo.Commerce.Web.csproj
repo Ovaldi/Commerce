@@ -230,6 +230,9 @@
     <Compile Include="Areas\Commerce\Controllers\BrandController.cs" />
     <Compile Include="Areas\Commerce\Controllers\HomeController.cs" />
     <Compile Include="Areas\Commerce\Models\Catalog\Brand_Metadata.cs" />
+    <Compile Include="Areas\Commerce\Models\CommerceSetting_Metadata.cs" />
+    <Compile Include="Areas\Commerce\Models\DeleteInfo.cs" />
+    <Compile Include="Grid\DateTimeGridItemColumn.cs" />
     <Compile Include="Grid\EditGridActionItemColumn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1760,6 +1763,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Commerce\Views\Shared\" />
+    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Cms_Data\Account\Roles\Content manager.config" />
@@ -2211,6 +2215,15 @@
       <Project>{4057ed63-4a86-4016-bb13-c8dac39b2981}</Project>
       <Name>Kooboo.Commerce</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Commerce\Views\Brand\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Commerce\Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Commerce\Views\Home\Create.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -2421,4 +2421,58 @@
   <data name="Only .png, .jpg and .gif file are allowed." xml:space="preserve">
     <value>Only .png, .jpg and .gif file are allowed.</value>
   </data>
+  <data name="Edit brand" xml:space="preserve">
+    <value>Edit brand</value>
+  </data>
+  <data name="Current Logo" xml:space="preserve">
+    <value>Current Logo</value>
+  </data>
+  <data name="The field Logo must be a string with a maximum length of 500." xml:space="preserve">
+    <value>The field Logo must be a string with a maximum length of 500.</value>
+  </data>
+  <data name="The UtcCreateDateTime field is required." xml:space="preserve">
+    <value>The UtcCreateDateTime field is required.</value>
+  </data>
+  <data name="UtcCreateDateTime" xml:space="preserve">
+    <value>UtcCreateDateTime</value>
+  </data>
+  <data name="UtcUpdateDateTime" xml:space="preserve">
+    <value>UtcUpdateDateTime</value>
+  </data>
+  <data name="CreateDateTime" xml:space="preserve">
+    <value>CreateDateTime</value>
+  </data>
+  <data name="UpdateDateTime" xml:space="preserve">
+    <value>UpdateDateTime</value>
+  </data>
+  <data name=" - Kooboo Commerce" xml:space="preserve">
+    <value> - Kooboo Commerce</value>
+  </data>
+  <data name="-Kooboo Commerce" xml:space="preserve">
+    <value>-Kooboo Commerce</value>
+  </data>
+  <data name="A new commerce" xml:space="preserve">
+    <value>A new commerce</value>
+  </data>
+  <data name="Create Commerce" xml:space="preserve">
+    <value>Create Commerce</value>
+  </data>
+  <data name="The EnableConnectionString field is required." xml:space="preserve">
+    <value>The EnableConnectionString field is required.</value>
+  </data>
+  <data name="EnableConnectionString" xml:space="preserve">
+    <value>EnableConnectionString</value>
+  </data>
+  <data name="ConnectionString" xml:space="preserve">
+    <value>ConnectionString</value>
+  </data>
+  <data name="Enable ConnectionString" xml:space="preserve">
+    <value>Enable ConnectionString</value>
+  </data>
+  <data name="The field ConnectionString must be a string with a maximum length of 100." xml:space="preserve">
+    <value>The field ConnectionString must be a string with a maximum length of 100.</value>
+  </data>
+  <data name="{0} is already exist." xml:space="preserve">
+    <value>{0} is already exist.</value>
+  </data>
 </root>

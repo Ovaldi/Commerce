@@ -1,32 +1,34 @@
 ﻿@model Kooboo.Commerce.Models.Catalog.Brand
 @{
-    ViewBag.Title = "Create brand".Localize();
+    ViewBag.Title = "Edit brand".Localize();
     Layout = "~/Views/Shared/Blank.cshtml";
 }
 @section Panel{
-     <ul class="panel">
+    <ul class="panel">
         <li>
             <a data-ajaxform="">
                 @Html.IconImage("save") @("Save".Localize())
             </a>
         </li>
         <li>
-            <a href="@ViewContext.RequestContext.GetRequestValue("return")">
+             <a href="@ViewContext.RequestContext.GetRequestValue("return")">
                 @Html.IconImage("cancel") @("Cancel".Localize())
             </a>
         </li>
-    </ul>
+     </ul>
 }
-
 <div class="block common-form">
     <h1 class="title">@ViewBag.Title</h1>
-    <form action="@(Url.Action("Create", "Brand", ViewContext.RequestContext.AllRouteValues()))" enctype = "multipart/form-data" method="post" >
+    <form action="@(Url.Action("Edit", "Brand", ViewContext.RequestContext.AllRouteValues()))" enctype = "multipart/form-data" method="post" >
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
+        @Html.HiddenFor(m=>m.Logo)
+        @Html.HiddenFor(m=>m.UtcCreateDateTime)
         <table>
             <tbody>
                 @Html.EditorFor(m => m.Name)
                 @Html.EditorFor(m => m.Description)
+                
                 <tr>
                     <th>
                         @Html.LabelFor(m => m.Logo)
@@ -34,6 +36,14 @@
                     <td>
                         <input type="file" name="file" id="file" accept="image/jpeg,image/jpg,image/png,image/gif" data-val-regex="@("Only .png, .jpg and .gif file are allowed.".Localize())" data-val-regex-pattern=".+\.(png|jpg|gif)$" data-val="true" />
                         @Html.ValidationMessageForInput("file")
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                       @Html.Label("Current Logo".Localize())
+                    </th>
+                    <td>
+                        <img id="currentLogo" width="50" height="50" src="@(Url.Content(string.IsNullOrEmpty(Model.Logo)?"~/Images/Default.png":Model.Logo))" />
                     </td>
                 </tr>
             </tbody>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Start".Localize();
+    Layout = "~/Views/Shared/Blank.cshtml";
+}
+@section Panel{
+    <ul class="panel">
+        <li class="j_DropDown">
+            <a>
+                @Html.IconImage("add")
+                @Html.IconImage("arrow small white-down")
+                @("Create".Localize())
+            </a>
+            <ul class="j_DropDownContent hide">
+                <li><a href="@Url.Action("Create", new { @return = ViewContext.HttpContext.Request.RawUrl })">
+                    @("A new commerce".Localize())</a></li>
+
+            </ul>
+        </li>
+    </ul>
+}

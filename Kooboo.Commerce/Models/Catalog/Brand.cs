@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Web;
 
 namespace Kooboo.Commerce.Models.Catalog
 {
@@ -16,6 +17,12 @@ namespace Kooboo.Commerce.Models.Catalog
         }
 
         public string Name
+        {
+            get;
+            set;
+        }
+
+        public HttpPostedFileBase HttpPostedFileBase
         {
             get;
             set;
@@ -34,6 +41,18 @@ namespace Kooboo.Commerce.Models.Catalog
         }
 
         public bool Deleted
+        {
+            get;
+            set;
+        }
+
+        public DateTime UtcCreateDateTime
+        {
+            get;
+            set;
+        }
+
+        public DateTime UtcUpdateDateTime
         {
             get;
             set;

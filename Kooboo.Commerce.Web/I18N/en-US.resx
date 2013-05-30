@@ -1067,4 +1067,10 @@ Are you sure you want to use this size?</value>
   <data name="Please select a HTML block" xml:space="preserve">
     <value>Please select a HTML block</value>
   </data>
+  <data name="-Kooboo Commerce" xml:space="preserve">
+    <value>-Kooboo Commerce</value>
+  </data>
+  <data name=" - Kooboo Commerce" xml:space="preserve">
+    <value> - Kooboo Commerce</value>
+  </data>
 </root>

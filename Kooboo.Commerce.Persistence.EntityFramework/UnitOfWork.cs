@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Kooboo.Commerce.Persistence.Infrastructure;
+using Kooboo.Commerce.Persistence.EntityFramework.Infrastructure;
 
 namespace Kooboo.Commerce.Persistence.EntityFramework
 {
