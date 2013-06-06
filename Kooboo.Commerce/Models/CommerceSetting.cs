@@ -25,5 +25,11 @@ namespace Kooboo.Commerce.Models
             set;
         }
 
+        public virtual string DatabaseFilePath
+        {
+            get;
+            set;
+        }
+
     }
 }

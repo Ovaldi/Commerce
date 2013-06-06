@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Kooboo.Commerce.Models.Orders;
 using Kooboo.Commerce.Persistence;
+using Kooboo.Commerce.Persistence.Orders;
 
 namespace Kooboo.Commerce.Services.Orders
 {

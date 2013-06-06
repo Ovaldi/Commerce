@@ -1,0 +1,30 @@
+﻿@model Kooboo.Commerce.Models.CommerceSetting
+@{    
+    Layout = "~/Views/Shared/Popup.cshtml";
+}
+
+<div class="block common-form in-warning-dialog">
+    <h1 class="title">@("Warning".Localize())</h1>
+    <article class="content">
+        <p class="clearfix"><strong>@("This commerce will be permanently deleted and cannot be recovered. Are you sure?".Localize())</strong></p>
+    </article>
+    @using (Html.BeginForm(ViewContext.RequestContext.GetRequestValue("Action"), ViewContext.RequestContext.GetRequestValue("Controller"), ViewContext.RequestContext.AllRouteValues(), FormMethod.Post, new RouteValueDictionary() { { "class", "no-stop" } }))
+    { 
+        @Html.AntiForgeryToken();
+        @Html.HiddenFor(it => it.Name);
+    }
+    <p class="buttons">
+        <button class="white" data-ajaxform="" data-confirm='@("This commerce will be permanently deleted and cannot be recovered. Are you sure?".Localize())'>
+            @("Delete".Localize())</button>
+
+        <a class="button white dialog-close">@("Cancel".Localize())</a>
+    </p>
+
+</div>
+<script>
+    $(function () {
+        $('.dialog-close').click(function () {
+            $.popContext.getCurrent().close();
+        });
+    });
+</script>

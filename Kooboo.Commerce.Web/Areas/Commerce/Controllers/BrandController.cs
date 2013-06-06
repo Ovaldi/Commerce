@@ -8,6 +8,7 @@ using Kooboo.Commerce.Models.Catalog;
 using Kooboo.Commerce.Services.Catalog;
 using Kooboo.CMS.Common;
 using Kooboo.Commerce.Web.Areas.Commerce.Models;
+using Kooboo.Commerce.Models;
 
 namespace Kooboo.Commerce.Web.Areas.Commerce.Controllers
 {
@@ -42,11 +43,14 @@ namespace Kooboo.Commerce.Web.Areas.Commerce.Controllers
                 {
                     if (this.Request.Files.Count > 0)
                     {
-                        brand.HttpPostedFileBase = this.Request.Files[0];
+                        brand.LogoFile = new EntityFile();
+                        brand.LogoFile.FileName = this.Request.Files[0].FileName;
+                        brand.LogoFile.Data = this.Request.Files[0].InputStream;
+                        brand.LogoFile.CommerceName = AppSetting.CurrentCommerce;
                     }
-                    //brand.Logo = GetLogo();
                     brand.UtcCreateDateTime
                         = brand.UtcUpdateDateTime = DateTime.UtcNow;
+                    
                     this._brandService.Add(brand);
                     resultEntry.RedirectUrl = @return;
                 }
@@ -77,7 +81,10 @@ namespace Kooboo.Commerce.Web.Areas.Commerce.Controllers
                 {
                     if (this.Request.Files.Count > 0)
                     {
-                        brand.HttpPostedFileBase = this.Request.Files[0];
+                        brand.LogoFile = new EntityFile();
+                        brand.LogoFile.FileName = this.Request.Files[0].FileName;
+                        brand.LogoFile.Data = this.Request.Files[0].InputStream;
+                        brand.LogoFile.CommerceName = AppSetting.CurrentCommerce;
                     }
                     brand.UtcUpdateDateTime = DateTime.UtcNow;
                     this._brandService.Update(brand);

@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Kooboo.Globalization;
 using Kooboo.Commerce.Models.Catalog;
 using Kooboo.Commerce.Persistence;
+using Kooboo.Commerce.Persistence.Catalog;
 using Kooboo.Web.Mvc.Paging;
 using Kooboo.CMS.Common.Runtime.Dependency;
 using System.Linq.Expressions;
+using System.IO;
 
 namespace Kooboo.Commerce.Services.Catalog
 {
@@ -34,12 +37,20 @@ namespace Kooboo.Commerce.Services.Catalog
 
         public void Add(Brand entity)
         {
+            if (entity.LogoFile != null)
+            {
+                entity.LogoFile.FileName = GenerateUniqueNameForImage(entity.LogoFile.FileName);
+            }
             this._provider.Add(entity);
             this._unitOfWork.Commit();
         }
 
         public void Update(Brand entity)
         {
+            if (entity.LogoFile != null)
+            {
+                entity.LogoFile.FileName = GenerateUniqueNameForImage(entity.LogoFile.FileName);
+            }
             this._provider.Update(entity);
             this._unitOfWork.Commit();
         }
@@ -68,6 +79,20 @@ namespace Kooboo.Commerce.Services.Catalog
             lst = query.OrderBy(it => it.Id).ToPagedList(page ?? 1, pageSize ?? 50);
 
             return lst;
+        }
+
+        private string GenerateUniqueNameForImage(string fileName)
+        {
+            string extension = Path.GetExtension(fileName);
+            if (!FileExtensions.ImageArray.Contains(extension.ToLower()))
+            {
+                string message = "Only enable ".Localize() + FileExtensions.Image;
+                throw new ArgumentException(message);
+            }
+            else
+            {
+                return Guid.NewGuid().ToString() + extension;
+            }
         }
     }
 }

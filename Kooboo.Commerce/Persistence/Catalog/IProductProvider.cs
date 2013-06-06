@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Kooboo.Commerce.Models.Catalog;
 
-namespace Kooboo.Commerce.Persistence
+namespace Kooboo.Commerce.Persistence.Catalog
 {
-    public interface ICategoryProvider:IProvider<Category>
+    public interface IProductProvider:IProvider<Product>
     {
     }
 }

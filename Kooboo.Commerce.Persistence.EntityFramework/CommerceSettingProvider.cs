@@ -15,23 +15,23 @@ namespace Kooboo.Commerce.Persistence.EntityFramework
     [Dependency(typeof(ICommerceSettingProvider))]
     public class CommerceSettingProvider:ICommerceSettingProvider
     {
-        private List<CommerceSetting> CacheSettings;
+        private ICommerceDataDir _commerceDataDir;
+        public CommerceSettingProvider(ICommerceDataDir commerceDataDir)
+        {
+            this._commerceDataDir = commerceDataDir;
+        }
+
         public virtual IEnumerable<CommerceSetting> GetAll()
         {
-            if (this.CacheSettings == null)
+            List<CommerceSetting> lst = new List<CommerceSetting>();
+            string[] folders = Directory.GetDirectories(this._commerceDataDir.DataPhysicalFolder);
+            foreach (string item in folders)
             {
-                List<CommerceSetting> lst = new List<CommerceSetting>();
-                string[] folders = Directory.GetDirectories(CommercePhysicalPath.Instance.FileFolder);
-                foreach (string item in folders)
-                {
-                    string settingFilePath = CommercePhysicalPath.Instance.GetSettingFilePath(item);
-                    CommerceSetting commerceSetting = Serialization.Deserialize<CommerceSetting>(settingFilePath);
-                    lst.Add(commerceSetting);
-                }
-                this.CacheSettings = lst;
+                string settingFilePath = this.GetSettingFilePhysicalPath(item);
+                CommerceSetting commerceSetting = Serialization.Deserialize<CommerceSetting>(settingFilePath);
+                lst.Add(commerceSetting);
             }
-
-            return this.CacheSettings;
+            return lst;
         }
 
         public CommerceSetting CreateSetting()
@@ -41,25 +41,25 @@ namespace Kooboo.Commerce.Persistence.EntityFramework
 
         public CommerceSetting GetByName(string name)
         {
-            throw new NotImplementedException();
+            return this.GetAll().FirstOrDefault(it => it.Name.ToLower().Equals(name.ToLower()));
         }
 
         public void Add(CommerceSetting setting)
         {
-            string commerceFolder = CommercePhysicalPath.Instance.GetCommerceFolder(setting.Name);
+            string commerceFolder = this.GetCommercePhysicalFolder(setting.Name);
             if (!Directory.Exists(commerceFolder))
             {
+                //Create folder
                 Directory.CreateDirectory(commerceFolder);
-                string imagesFolder = CommercePhysicalPath.Instance.GetImagesFolder(setting.Name);
-                string[] folders = new string[] { imagesFolder };
+                string imagesFolder = this.GetImageFilePhysicalFolder(setting.Name);
+                string databaseFolder = this.GetDatabaseFilePhysicalFolder(setting.Name);
+                string[] folders = new string[] { imagesFolder,databaseFolder };
                 foreach (string path in folders)
                 {
                     Directory.CreateDirectory(path);
                 }
 
-                string settingFilePath = CommercePhysicalPath.Instance.GetSettingFilePath(setting.Name);
-                Serialization.Serialize<CommerceSetting>(setting, settingFilePath);
-
+                //Create database
                 if (setting.EnableConnectionString)
                 {
                     CommerceDbContext ctx = new CommerceDbContext(setting.ConnectionString);
@@ -69,11 +69,15 @@ namespace Kooboo.Commerce.Persistence.EntityFramework
                 else
                 {
                     //SqlCE
-                    string databaseFilePath = CommercePhysicalPath.Instance.GetDatabaseFilePath(setting.Name);
-                    CommerceDbContext ctx = new CommerceDbContext(databaseFilePath);
+                    setting.DatabaseFilePath = this.GetDatabaseFilePhysicalPath(setting.Name);
+                    CommerceDbContext ctx = new CommerceDbContext(setting.DatabaseFilePath);
                     ctx.Database.Create();
                     ctx.Dispose();
                 }
+
+                //Create file:setting.config
+                string settingFilePath = this.GetSettingFilePhysicalPath(setting.Name);
+                Serialization.Serialize<CommerceSetting>(setting, settingFilePath);
             }
             else
             {
@@ -90,6 +94,36 @@ namespace Kooboo.Commerce.Persistence.EntityFramework
         public void Delete(CommerceSetting setting)
         {
             throw new NotImplementedException();
+        }
+
+        private string GetCommercePhysicalFolder(string commerceName)
+        {
+            return Path.Combine(this._commerceDataDir.DataPhysicalFolder, commerceName);
+        }
+
+        private string GetDatabaseFilePhysicalFolder(string commerceName)
+        {
+            return Path.Combine(this._commerceDataDir.DataPhysicalFolder, commerceName, "Data");
+        }
+
+        private string GetDatabaseFilePhysicalPath(string commerceName)
+        {
+            return Path.Combine(GetDatabaseFilePhysicalFolder(commerceName), string.Format("data_{0}.sdf", commerceName));
+        }
+
+        private string GetImageFilePhysicalFolder(string commerceName)
+        {
+            return Path.Combine(this._commerceDataDir.DataPhysicalFolder, commerceName, "Images");
+        }
+
+        private string GetSettingFilePhysicalFolder(string commerceName)
+        {
+            return Path.Combine(this._commerceDataDir.DataPhysicalFolder, commerceName);
+        }
+
+        private string GetSettingFilePhysicalPath(string commerceName)
+        {
+            return Path.Combine(this.GetSettingFilePhysicalFolder(commerceName), "setting.config");
         }
     }
 }

@@ -166,20 +166,25 @@
     <Compile Include="..\AssemblyInfoGlobal.cs">
       <Link>AssemblyInfoGlobal.cs</Link>
     </Compile>
+    <Compile Include="AppSetting.cs" />
     <Compile Include="Models\Catalog\Brand.cs" />
     <Compile Include="Models\Catalog\Category.cs" />
     <Compile Include="Models\Catalog\ProductType.cs" />
     <Compile Include="Models\CommerceSetting.cs" />
     <Compile Include="Models\Customers\Customer.cs" />
+    <Compile Include="Models\EntityFile.cs" />
     <Compile Include="Models\Orders\Order.cs" />
     <Compile Include="Models\Catalog\PackageSize.cs" />
     <Compile Include="Models\Catalog\Product.cs" />
-    <Compile Include="Persistence\IBrandProvider.cs" />
-    <Compile Include="Persistence\ICategoryProvider.cs" />
+    <Compile Include="Persistence\EntityFileProvider.cs" />
+    <Compile Include="Persistence\Catalog\IBrandProvider.cs" />
+    <Compile Include="Persistence\Catalog\ICategoryProvider.cs" />
+    <Compile Include="ICommerceDataDir.cs" />
     <Compile Include="Persistence\ICommerceSettingProvider.cs" />
-    <Compile Include="Persistence\ICustomerProvider.cs" />
-    <Compile Include="Persistence\IOrderProvider.cs" />
-    <Compile Include="Persistence\IProductProvider.cs" />
+    <Compile Include="Persistence\Customers\ICustomerProvider.cs" />
+    <Compile Include="Persistence\IEntityFileProvider.cs" />
+    <Compile Include="Persistence\Orders\IOrderProvider.cs" />
+    <Compile Include="Persistence\Catalog\IProductProvider.cs" />
     <Compile Include="Persistence\IProvider.cs" />
     <Compile Include="Persistence\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

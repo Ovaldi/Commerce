@@ -2225,6 +2225,12 @@
   <ItemGroup>
     <Content Include="Areas\Commerce\Views\Home\Create.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Commerce\Views\Home\SiteNode.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Commerce\Views\Home\Delete.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

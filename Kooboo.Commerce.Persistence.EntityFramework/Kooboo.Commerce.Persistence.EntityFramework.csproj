@@ -117,11 +117,10 @@
     <Compile Include="..\AssemblyInfoGlobal.cs">
       <Link>AssemblyInfoGlobal.cs</Link>
     </Compile>
-    <Compile Include="BrandProvider.cs" />
+    <Compile Include="Catalog\BrandProvider.cs" />
+    <Compile Include="CommerceDataDir.cs" />
     <Compile Include="CommerceSettingProvider.cs" />
     <Compile Include="Infrastructure\CommerceDbContext.cs" />
-    <Compile Include="Infrastructure\CommercePhysicalPath.cs" />
-    <Compile Include="Infrastructure\CommerceVirtualPath.cs" />
     <Compile Include="Infrastructure\DatabaseFactory.cs" />
     <Compile Include="Infrastructure\IDatabaseFactory.cs" />
     <Compile Include="Mapping\BrandMap.cs" />
@@ -129,7 +128,7 @@
     <Compile Include="Mapping\OrderMap.cs" />
     <Compile Include="Mapping\ProductMap.cs" />
     <Compile Include="OrderProvider.cs" />
-    <Compile Include="ProductProvider.cs" />
+    <Compile Include="Catalog\ProductProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProviderBase.cs" />
     <Compile Include="UnitOfWork.cs" />

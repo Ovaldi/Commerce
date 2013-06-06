@@ -22,7 +22,7 @@ namespace Kooboo.Commerce.Models.Catalog
             set;
         }
 
-        public HttpPostedFileBase HttpPostedFileBase
+        public EntityFile LogoFile
         {
             get;
             set;

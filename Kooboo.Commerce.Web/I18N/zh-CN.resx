@@ -2475,4 +2475,13 @@
   <data name="{0} is already exist." xml:space="preserve">
     <value>{0} is already exist.</value>
   </data>
+  <data name="Commerce cluster" xml:space="preserve">
+    <value>Commerce cluster</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="This commerce will be permanently deleted and cannot be recovered. Are you sure?" xml:space="preserve">
+    <value>This commerce will be permanently deleted and cannot be recovered. Are you sure?</value>
+  </data>
 </root>

@@ -12,5 +12,6 @@ namespace Kooboo.Commerce.Services
         CommerceSetting GetByName(string name);
         void Add(CommerceSetting setting);
         void Delete(string name);
+        IEnumerable<CommerceSetting> Search(string search);
     }
 }

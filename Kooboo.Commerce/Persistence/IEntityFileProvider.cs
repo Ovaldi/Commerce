@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Kooboo.Commerce.Models.Catalog;
+using Kooboo.Commerce.Models;
 
 namespace Kooboo.Commerce.Persistence
 {
-    public interface IBrandProvider:IProvider<Brand>
+    public interface IEntityFileProvider
     {
+        EntityFileOperationResult SaveAs(EntityFile file);
     }
 }

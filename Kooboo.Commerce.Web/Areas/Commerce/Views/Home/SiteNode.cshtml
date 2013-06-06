@@ -1,0 +1,16 @@
+﻿@model Kooboo.Commerce.Models.CommerceSetting
+
+<div class="map-item">
+    @Html.ActionLink(Model.Name, "Index", "Dashboard", new { commerceName = Model.Name }, new { })
+    <span class="arrow">
+        @Html.IconImage("arrow-right")</span>
+    <ul>
+        <li>
+            @Html.ActionLink("Edit".Localize(), "Edit", "Home", new { CommerceName = Model.Name, @return = Request.RawUrl }, new { @class = "edit-site-link" })
+        </li>
+        <li>
+            @Html.ActionLink("Delete".Localize(), "Delete", "Home", new { CommerceName = Model.Name, @return = Request.RawUrl }, new { @class = "delete-site-link" })
+        </li>
+
+    </ul>
+</div>
